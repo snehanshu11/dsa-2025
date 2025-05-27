@@ -18,3 +18,15 @@ def solve(nums,target):
 nums=[1, 2, 3, 4, 5, 6]
 target=11
 print(solve(nums,target))
+
+def solve_naive(nums,target):
+    l=len(nums)
+    for i in range(0,l-1):
+        for j in range(i+1,l):
+            if nums[i]+nums[j]==target:
+                return [i,j]
+    return [-1,-1]
+        
+nums=[1, 2, 3, 4, 5, 6]
+target=10
+print(solve_naive(nums,target))
