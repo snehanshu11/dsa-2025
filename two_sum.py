@@ -58,10 +58,10 @@ def solve_backtrack(index,total,target,lst):
 
     lst.append(index)
     total+=nums[index]
-    solve(index+1,total,target,lst)
+    solve_backtrack(index+1,total,target,lst)
     lst.pop()
     total-=nums[index]
-    solve(index+1,total,target,lst)
+    solve_backtrack(index+1,total,target,lst)
     
         
 res=[]        
