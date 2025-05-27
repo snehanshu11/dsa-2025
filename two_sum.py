@@ -3,7 +3,7 @@
 
 # method 1 : Using two pointers: works with sorted array
 
-def solve(nums,target):
+def solve_two_pointer(nums,target):
     left=0
     right=len(nums)-1
     while left<=right:
@@ -17,7 +17,7 @@ def solve(nums,target):
 
 nums=[1, 2, 3, 4, 5, 6]
 target=11
-print(solve(nums,target))
+print(solve_two_pointer(nums,target))
 
 def solve_naive(nums,target):
     l=len(nums)
@@ -30,3 +30,18 @@ def solve_naive(nums,target):
 nums=[1, 2, 3, 4, 5, 6]
 target=10
 print(solve_naive(nums,target))
+
+def solve_hashmap(nums,target):
+    hm={}
+    for i in range(len(nums)):
+        print(hm)
+        complement = target - nums[i]
+        if nums[i] not in hm:
+            hm[complement]=i
+        else:
+            return [hm[nums[i]],i]
+    return [-1,-1]
+        
+nums=[1, 2, 3, 4, 5, 6]
+target=11
+print(solve_hashmap(nums,target))
