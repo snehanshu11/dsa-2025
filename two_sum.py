@@ -45,3 +45,28 @@ def solve_hashmap(nums,target):
 nums=[1, 2, 3, 4, 5, 6]
 target=11
 print(solve_hashmap(nums,target))
+
+def solve_backtrack(index,total,target,lst):
+    
+    if total==target:
+        if len(lst)==2:
+            res.append(lst.copy())
+            return
+        
+    if index>=len(nums):
+        return
+
+    lst.append(index)
+    total+=nums[index]
+    solve(index+1,total,target,lst)
+    lst.pop()
+    total-=nums[index]
+    solve(index+1,total,target,lst)
+    
+        
+res=[]        
+nums=[1, 2, 3, 4, 5, 6]
+target=10
+lst=[]
+solve_backtrack(0,0,target,lst)
+print(res)
